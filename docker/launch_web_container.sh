@@ -1,0 +1,43 @@
+docker run \
+    -e DB_HOSTNAME=::1 \
+    -e DB_NAME=bosch_portal_qa \
+    -e DB_PASSWORD=<password> \
+    -e DB_USERNAME=bosch_portal_qa \
+    -e PASSENGER_APP_ENV=qa \
+    -e RAILS_ENV=qa \
+    -e RUN_MIGRATE=false \
+    -e RUN_CREATE=false \
+    -e RUN_SEEDS=false \
+    -e SMTP_DEFAULT_URL=localhost:3000 \
+    -e SMTP_HOST=email-smtp.us-east-1.amazonaws.com \
+    -e SMTP_PASSWORD=foo \
+    -e SMTP_PORT=587 \
+    -e SMTP_SENDING_ADDRESS=noreply@mdl.online \
+    -e SMTP_USERNAME=bar \
+    -t -i arpcdev/bosch-portal:ci bash
+
+docker run \
+    -e DB_HOSTNAME=192.168.60.38 \
+    -e DB_NAME=ethiconhm \
+    -e DB_PASSWORD=test \
+    -e DB_USERNAME=postgres \
+    -e DB_PLAINTIFF_HOSTNAME=192.168.60.38 \
+    -e DB_PLAINTIFF_NAME=ethiconhm_plaintiff \
+    -e DB_PLAINTIFF_PASSWORD=test \
+    -e DB_PLAINTIFF_USERNAME=postgres \
+    -e DB_PLAINTIFF_PORT=5433 \
+    -e PASSENGER_APP_ENV=production \
+    -e RAILS_ENV=production \
+    -e RUN_MIGRATE=false \
+    -e RUN_CREATE=false \
+    -e RUN_SEEDS=false \
+    -e SMTP_DEFAULT_URL=localhost:3000 \
+    -e SMTP_HOST=email-smtp.us-east-1.amazonaws.com \
+    -e SMTP_PASSWORD=foo \
+    -e SMTP_PORT=587 \
+    -e SMTP_SENDING_ADDRESS=noreply@mdl.online \
+    -e SMTP_USERNAME=bar \
+    -e SECRET_KEY_BASE=fart \
+    -e ENABLE_ACTIVE_ADMIN_ROUTING=true \
+    -p 3050:80 \
+    -t -i 898250a47a49
